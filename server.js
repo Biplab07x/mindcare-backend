@@ -5,6 +5,7 @@ import fetch from "node-fetch";
 
 dotenv.config();
 
+const express=require("express");
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -54,6 +55,13 @@ ${message}
         "I'm here to support you. Tell me more about what you're feeling right now."
     });
   }
+});
+
+app.get("/", (req, res) => {
+  res.status(200).json({
+    message: "MindCare Backend is running 🚀",
+    status: "OK"
+  });
 });
 
 const PORT = process.env.PORT || 5000;
